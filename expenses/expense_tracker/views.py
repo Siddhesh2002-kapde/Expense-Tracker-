@@ -23,7 +23,7 @@ class ExpenseView(viewsets.ModelViewSet):
         today = now().date()
         first_day_of_month = today.replace(day=1)
         expense_monthly = Expense.objects.filter(user = user, date__gte = first_day_of_month, date__lte = today).values('category__name').annotate(total_sum = Sum('amount')).order_by("category__name")
-
+        print("Expense------------",expense_monthly)
         return Response(expense_monthly)
 
 

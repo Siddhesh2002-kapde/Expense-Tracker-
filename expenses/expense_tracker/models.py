@@ -74,7 +74,7 @@ class PaymentTerm(models.Model):
         unique_together = ("payment_term_name", "user")
 
     def __str__(self):
-        return f"{self.name} ({self.user})"
+        return f"{self.payment_term_name} ({self.user})"
     
 
 class RecurringType(models.Model):
@@ -83,7 +83,7 @@ class RecurringType(models.Model):
         db_table = 'recurring_type'
 
     def __str__(self):
-        return f"{self.name} ({self.user})"
+        return f"{self.name}"
 
 
 class Currency(models.Model):
